@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Para mi princesa ❤️</title>
+
+
+<style>
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #4a163c,
+            #180b20 55%,
+            #09060d
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   CORAZONES
+========================= */
+
+.corazones {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+
+.corazon {
+
+    position: absolute;
+
+    bottom: -50px;
+
+    font-size: 20px;
+
+    opacity: 0;
+
+    animation:
+        subir 8s linear infinite;
+}
+
+
+@keyframes subir {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+    15% {
+
+        opacity: .7;
+
+    }
+
+    85% {
+
+        opacity: .7;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================
+   PANTALLA DE INICIO
+========================= */
+
+.inicio {
+
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+
+}
+
+
+.estrella {
+
+    font-size: 45px;
+
+    animation:
+        brillo 2s infinite alternate;
+
+}
+
+
+@keyframes brillo {
+
+    from {
+
+        transform: scale(1);
+
+        opacity: .6;
+
+    }
+
+    to {
+
+        transform: scale(1.2);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+.inicio h1 {
+
+    font-size: 42px;
+
+    margin: 15px 0;
+
+    font-weight: 600;
+
+}
+
+
+.inicio p {
+
+    max-width: 500px;
+
+    font-size: 20px;
+
+    line-height: 1.6;
+
+    opacity: .9;
+
+}
+
+
+.boton {
+
+    margin-top: 25px;
+    padding: 15px 32px;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    color: white;
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f9a,
+            #b91d73
+        );
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px
+        rgba(255, 60, 150, .35);
+
+    transition: .3s;
+
+}
+
+
+.boton:hover {
+
+    transform: scale(1.06);
+
+}
+
+
+/* =========================
+   CONTENIDO
+========================= */
+
+.sorpresa {
+
+    position: relative;
+    z-index: 2;
+    display: none;
+    min-height: 100vh;
+    padding:
+        50px
+        20px
+        80px;
+
+    text-align: center;
+    animation:
+        aparecer 1.5s ease;
+
+}
+
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.sorpresa h1 {
+
+    font-size: 34px;
+    margin-bottom: 10px;
+
+}
+
+
+.subtitulo {
+
+    max-width: 600px;
+    margin:
+        0 auto
+        40px;
+
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: .85;
+
+}
+
+
+/* =========================
+   REPRODUCTOR
+========================= */
+
+.musica {
+
+    margin:
+        20px auto
+        40px;
+
+}
+
+
+.btn-musica {
+
+    border: 1px solid
+        rgba(255,255,255,.3);
+    background:
+        rgba(255,255,255,.1);
+    color: white;
+    padding:
+        10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    backdrop-filter:
+        blur(10px);
+
+}
+
+
+/* =========================
+   CARRUSEL
+========================= */
+
+.carrusel {
+
+    max-width: 550px;
+
+    margin:
+        0 auto;
+
+}
+
+
+.marco {
+
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    padding: 8px;
+    background:
+        rgba(255,255,255,.08);
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.5);
+}
+
+
+.marco img {
+
+    width: 100%;
+    display: block;
+    border-radius: 18px;
+    transition:
+        opacity .5s,
+        transform .5s;
+}
+.animar {
+    animation:
+        cambiarFoto .6s ease;
+}
+
+@keyframes cambiarFoto {
+
+    0% {
+        opacity: 0;
+        transform:
+            scale(.96);
+    }
+    100% {
+        opacity: 1;
+        transform:
+            scale(1);
+    }
+
+}
+
+
+/* =========================
+   BOTONES DEL CARRUSEL
+========================= */
+
+.controles {
+
+    display: flex;
+    justify-content:
+        center;
+    gap: 15px;
+    margin-top: 20px;
+
+}
+
+
+.controles button {
+
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    background:
+        rgba(255,255,255,.12);
+    color: white;
+    transition: .3s;
+
+}
+
+
+.controles button:hover {
+
+    background:
+        rgba(255,255,255,.25);
+    transform:
+        scale(1.08);
+}
+
+
+/* =========================
+   TEXTO DE CADA FOTO
+========================= */
+
+.frase {
+    min-height: 60px;
+    margin-top: 20px;
+    font-size: 19px;
+    line-height: 1.5;
+    font-style: italic;
+    opacity: .9;
+}
+/* =========================
+   INDICADORES
+========================= */
+
+.indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+.punto {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background:
+        rgba(255,255,255,.3);
+
+    transition: .3s;
+}
+
+
+.punto.activo {
+
+    width: 24px;
+    border-radius: 10px;
+    background:
+        rgba(255,255,255,.9);
+
+}
+
+
+/* =========================
+   MENSAJE FINAL
+========================= */
+
+.final {
+
+    max-width: 600px;
+
+    margin:
+        100px auto
+        0;
+    padding: 35px 25px;
+    border-radius: 25px;
+    background:
+        rgba(255,255,255,.06);
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    backdrop-filter:
+        blur(12px);
+
+}
+
+
+.final h2 {
+
+    font-size: 30px;
+
+}
+
+
+.final p {
+
+    font-size: 19px;
+
+    line-height: 1.8;
+
+}
+
+
+.corazon-final {
+
+    font-size: 45px;
+
+    margin-top: 20px;
+
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .inicio h1 {
+        font-size: 34px;
+    }
+    .inicio p {
+        font-size: 18px;
+    }
+    .sorpresa h1 {
+        font-size: 28px;
+    }
+    .subtitulo {
+        font-size: 16px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     CORAZONES
+========================= -->
+
+<div class="corazones">
+
+    <div class="corazon"
+         style="left:10%; animation-delay:0s;">
+        ❤️
+    </div>
+
+    <div class="corazon"
+         style="left:25%; animation-delay:2s;">
+        💗
+    </div>
+
+    <div class="corazon"
+         style="left:45%; animation-delay:4s;">
+        ❤️
+    </div>
+
+    <div class="corazon"
+         style="left:65%; animation-delay:1s;">
+        💕
+    </div>
+
+    <div class="corazon"
+         style="left:85%; animation-delay:3s;">
+        ❤️
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     INICIO
+========================= -->
+
+<section
+    class="inicio"
+    id="inicio">
+
+    <div class="estrella">
+        💌
+    </div>
+
+    <h1>
+        Para el amor de mi vida ❤️‍🔥
+    </h1>
+
+    <p>
+        No es una fecha especial...
+        simplemente quería hacer algo
+        bonito para mostrarle lo mucho que la quiero.
+    </p>
+
+    <button
+        class="boton"
+        onclick="abrirSorpresa()">
+
+        ✨ Abrir mi sorpresa ✨
+
+    </button>
+
+</section>
+
+
+
+<!-- =========================
+     SORPRESA
+========================= -->
+
+<section
+    class="sorpresa"
+    id="sorpresa">
+
+
+    <h1>
+        ️🩷 Para la persona mas especial 🖤
+    </h1>
+
+
+    <p class="subtitulo">
+
+        Hay personas que llegan a nuestra vida
+        y hacen que muchos momentos simples
+        se conviertan en recuerdos especiales.
+
+        <br><br>
+
+        Este pequeño detalle es para usted.
+
+    </p>
+
+
+
+    <!-- MÚSICA -->
+
+    <div class="musica">
+
+        <button
+            class="btn-musica"
+            onclick="controlarMusica()"
+            id="botonMusica">
+
+            🎵 Reproducir música
+
+        </button>
+
+        <audio
+            id="musica">
+
+            <source
+                src="Mónaco.mp3"
+                type="audio/mpeg">
+
+        </audio>
+
+    </div>
+
+
+
+    <!-- CARRUSEL -->
+
+    <div class="carrusel">
+        <div class="marco">
+            <img
+                id="foto"
+                alt="Nuestro recuerdo">
+        </div>
+        
+        <div class="controles">
+            <button
+                onclick="anterior()">
+                ❮
+            </button>
+
+
+            <button
+                onclick="siguiente()">
+
+                ❯
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="indicadores"
+            id="indicadores">
+
+        </div>
+
+
+        <div
+            class="frase"
+            id="frase">
+
+        </div>
+
+    </div>
+
+
+
+    <!-- MENSAJE FINAL -->
+
+    <div class="final">
+
+        <h2>
+            ❤️ Para mi princesa
+        </h2>
+
+
+        <p>
+
+            No necesito una fecha especial
+            para recordale lo mucho que la quiero.
+
+            <br><br>
+
+            Simplemente quería regalarle
+            un pequeño detalle se que no es mucho, pero lo hice con mucho cariño, espero le haya gustado.
+            
+            <br><br>
+            
+            La quiero mi amor.
+
+        </p>
+
+
+        <div class="corazon-final">
+
+            💌
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<script>
+
+
+/* =========================
+   DATOS DE LAS FOTOS
+========================= */
+
+const fotos = [
+
+    {
+        imagen: "Foto_04.jpg",
+        frase:
+        "Un momento que siempre me gusta recordar. ❤️"
+    },
+
+    {
+        imagen: "Foto_05.jpg",
+        frase:
+        "Porque usted hasta los momentos simples tienen algo especial. 💕"
+    },
+
+    {
+        imagen: "Foto_10.jpg",
+        frase:
+        "Otro recuerdo que guardo con mucho cariño. ❤️‍🩹"
+    },
+
+    {
+        imagen: "Foto_08.jpg",
+        frase:
+        "Se que no es nuestro primer recuerdo, pero espero quetampocosea el último. ✨️"
+    },
+
+ {
+        imagen: "Foto_06.jpg",
+        frase:
+        "Y espero que todavía nos queden muchos recuerdos por crear. ❤️‍🔥"
+    },
+
+{
+        imagen: "Foto_09.jpg",
+        frase:
+        "Nunca sentí que tenia suerte, hasta que me abrio los ojos y me hizo ver la suerte que tengo de tenerla conmigo. 🍀"
+    },
+
+{
+        imagen: "Foto_02.jpg",
+        frase:
+        "Me encanta que locuras van con mis locuras, somos como piezas de rompecabezas con las orillas curvas que al unirse dejan ver la imagen completa. 🖤"
+    },
+
+{
+        imagen: "Foto_03.jpg",
+        frase:
+        "Tú eres mi camino y siempre vas a ser mi camino. 🕷"
+    },
+
+{
+        imagen: "Foto_07.jpg",
+        frase:
+        "Solo quiero que esté bien. <3"
+    },
+
+{
+        imagen: "Foto_01.jpg",
+        frase:
+        "La quiero mi amor. 💞"
+    },
+
+];
+
+
+let posicion = 0;
+
+
+/* =========================
+   ABRIR SORPRESA
+========================= */
+
+function abrirSorpresa() {
+
+    document
+        .getElementById("inicio")
+        .style.display = "none";
+
+
+    document
+        .getElementById("sorpresa")
+        .style.display = "block";
+
+
+    actualizarFoto();
+
+}
+
+
+/* =========================
+   MOSTRAR FOTO
+========================= */
+
+function actualizarFoto() {
+
+    const imagen =
+        document.getElementById("foto");
+    imagen.classList.remove("animar");
+    void imagen.offsetWidth;
+    imagen.src =
+        fotos[posicion].imagen;
+    imagen.classList.add("animar");
+    
+    document
+        .getElementById("frase")
+        .textContent =
+        fotos[posicion].frase;
+
+
+    actualizarIndicadores();
+
+}
+
+
+/* =========================
+   SIGUIENTE
+========================= */
+
+function siguiente() {
+    posicion++;
+    if (posicion >= fotos.length) {
+        posicion = 0;
+    }
+    actualizarFoto();
+
+}
+
+
+/* =========================
+   ANTERIOR
+========================= */
+
+function anterior() {
+    posicion--;
+    if (posicion < 0) {
+        posicion =
+            fotos.length - 1;
+    }
+    actualizarFoto();
+
+}
+
+
+/* =========================
+   INDICADORES
+========================= */
+
+function actualizarIndicadores() {
+
+    const contenedor =
+        document.getElementById(
+            "indicadores"
+        );
+
+
+    contenedor.innerHTML = "";
+
+
+    fotos.forEach(
+        function(foto, indice) {
+
+            const punto =
+                document.createElement(
+                    "div"
+                );
+
+
+            punto.className =
+                "punto";
+
+
+            if (indice === posicion) {
+
+                punto.classList.add(
+                    "activo"
+                );
+
+            }
+
+
+            contenedor.appendChild(
+                punto
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================
+   MÚSICA
+========================= */
+
+function controlarMusica() {
+
+    const musica =
+        document.getElementById(
+            "musica"
+        );
+
+
+    const boton =
+        document.getElementById(
+            "botonMusica"
+        );
+
+
+    if (musica.paused) {
+
+        musica.play();
+
+        boton.textContent =
+            "⏸️ Pausar música";
+
+    }
+
+    else {
+
+        musica.pause();
+
+        boton.textContent =
+            "🎵 Reproducir música";
+
+    }
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
